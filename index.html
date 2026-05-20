@@ -3,13 +3,11 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SoachPK | سوچ پی کے — Pakistan AI Platform</title>
-<meta name="description" content="SoachPK — Pakistan's AI Platform. Affordable AI access for every Pakistani. سوچ پی کے — پاکستان کا AI پلیٹ فارم"/>
-<meta name="keywords" content="SoachPK, Pakistan AI, Claude AI Pakistan, AI platform Pakistan, سوچ پی کے"/>
+<title>SochAI Pakistan | سوچ اے آئی پاکستان — Think with AI</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  --pk-green: #00401A;
+  --pk-green: #01411C;
   --pk-green2: #0a5c28;
   --pk-green3: #0f7a36;
   --gold: #C9A227;
@@ -25,13 +23,7 @@
 html { scroll-behavior: smooth; }
 body { font-family: var(--body-font); background: var(--dark); color: var(--white); overflow-x: hidden; cursor: none; }
 
-/* SOACHPK INLINE LOGO */
-.spk-logo { display:flex; align-items:center; gap:0.6rem; }
-.spk-crescent { width:34px; height:34px; flex-shrink:0; }
-.spk-text { display:flex; flex-direction:column; }
-.spk-en { font-family:var(--en-font); font-weight:900; font-size:1.05rem; color:var(--white); line-height:1.1; display:flex; align-items:center; gap:5px; }
-.spk-badge { background:var(--gold); color:var(--pk-green); font-family:var(--body-font); font-weight:700; font-size:0.55rem; padding:0.1rem 0.38rem; border-radius:3px; letter-spacing:0.04em; }
-.spk-ur { font-family:var(--urdu-font); direction:rtl; color:rgba(201,162,39,0.65); font-size:0.72rem; line-height:1.8; }
+/* CURSOR */
 .cursor { width: 18px; height: 18px; border: 2px solid var(--gold); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width 0.2s, height 0.2s, background 0.2s; }
 .cursor-dot { width: 4px; height: 4px; background: var(--gold); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); }
 
@@ -247,6 +239,47 @@ footer { border-top: 1px solid rgba(10,92,40,0.22); padding: 2.8rem 3rem; displa
 @media(max-width:768px){ nav{padding:0.8rem 1.2rem;} .nav-links{display:none;} footer{grid-template-columns:1fr;text-align:center;padding:2rem 1.5rem;} }
 
 /* ANIMATIONS */
+/* WAITLIST FORM */
+.wl-form-wrap { margin-top: 2.2rem; position: relative; z-index: 1; animation: fadeUp 0.7s 0.35s ease both; }
+.wl-form { display: flex; flex-direction: column; gap: 0.75rem; max-width: 480px; margin-inline: auto; }
+.wl-row { display: flex; gap: 0.6rem; }
+.wl-input { flex: 1; background: rgba(250,250,248,0.06); border: 1px solid rgba(201,162,39,0.28); border-radius: 4px; padding: 0.85rem 1.1rem; font-family: var(--body-font); font-size: 0.88rem; color: var(--white); outline: none; transition: border-color 0.2s; }
+.wl-input::placeholder { color: rgba(250,250,248,0.28); }
+.wl-input:focus { border-color: var(--gold); background: rgba(250,250,248,0.09); }
+.wl-select { flex: 1; background: rgba(250,250,248,0.06); border: 1px solid rgba(201,162,39,0.28); border-radius: 4px; padding: 0.85rem 1.1rem; font-family: var(--body-font); font-size: 0.88rem; color: var(--white); outline: none; transition: border-color 0.2s; cursor: pointer; appearance: none; }
+.wl-select option { background: var(--dark2); color: var(--white); }
+.wl-select:focus { border-color: var(--gold); }
+.wl-btn { background: var(--gold); color: var(--dark); font-family: var(--en-font); font-weight: 700; font-size: 0.9rem; padding: 0.85rem 1.8rem; border-radius: 4px; border: none; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+.wl-btn:hover { background: var(--gold2); transform: translateY(-1px); }
+.wl-privacy { font-size: 0.67rem; color: rgba(250,250,248,0.25); text-align: center; margin-top: 0.3rem; }
+.wl-privacy span { font-family: var(--urdu-font); direction: rtl; font-size: 0.7rem; display: block; color: rgba(201,162,39,0.3); margin-top: 0.15rem; }
+.wl-success { display: none; background: rgba(10,92,40,0.25); border: 1px solid rgba(10,92,40,0.55); border-radius: 8px; padding: 1.4rem; text-align: center; }
+.wl-success-en { font-family: var(--en-font); font-weight: 700; font-size: 1.05rem; color: var(--gold); }
+.wl-success-ur { font-family: var(--urdu-font); direction: rtl; display: block; font-size: 0.9rem; color: rgba(201,162,39,0.6); margin-top: 0.3rem; line-height: 2; }
+
+/* COUNTER STRIP */
+.counter-strip { display: flex; align-items: center; justify-content: center; gap: 1.2rem; margin-top: 1.4rem; position: relative; z-index: 1; flex-wrap: wrap; }
+.counter-pill { display: flex; align-items: center; gap: 0.5rem; background: rgba(201,162,39,0.07); border: 1px solid rgba(201,162,39,0.18); border-radius: 100px; padding: 0.4rem 1rem; }
+.counter-num { font-family: var(--en-font); font-weight: 900; font-size: 1rem; color: var(--gold); }
+.counter-label { font-size: 0.68rem; color: rgba(250,250,248,0.4); letter-spacing: 0.05em; }
+.counter-dot-live { width: 6px; height: 6px; border-radius: 50%; background: #2ecc71; animation: pulse 2s infinite; flex-shrink: 0; }
+
+/* COMING SOON on pricing */
+.cs-badge { display: inline-block; background: rgba(201,162,39,0.12); border: 1px solid rgba(201,162,39,0.3); color: var(--gold); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 2px; margin-bottom: 0.6rem; }
+.p-btn-wl { width: 100%; padding: 0.82rem; border-radius: 3px; cursor: pointer; font-family: var(--en-font); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.04em; border: 1px solid rgba(201,162,39,0.35); background: transparent; color: var(--gold); transition: all 0.2s; }
+.p-btn-wl:hover { background: rgba(201,162,39,0.08); }
+.p-btn-wl.hot-wl { background: var(--gold); color: var(--dark); border-color: var(--gold); }
+.p-btn-wl.hot-wl:hover { background: var(--gold2); }
+
+/* SECTION WAITLIST */
+.wl-section { background: var(--pk-green); }
+.wl-section .inner { max-width: 620px; text-align: center; }
+.wl-box { background: rgba(1,65,28,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 3rem 2rem; margin-top: 2.5rem; position: relative; overflow: hidden; }
+.wl-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--pk-green3), var(--gold), var(--pk-green3)); }
+.early-perks { display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center; margin: 1.5rem 0; }
+.perk { background: rgba(201,162,39,0.08); border: 1px solid rgba(201,162,39,0.18); border-radius: 100px; padding: 0.35rem 0.9rem; font-size: 0.72rem; color: rgba(250,250,248,0.6); }
+.perk strong { color: var(--gold); }
+
 @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
 </style>
 </head>
@@ -258,16 +291,9 @@ footer { border-top: 1px solid rgba(10,92,40,0.22); padding: 2.8rem 3rem; displa
 
 <!-- NAV -->
 <nav>
-  <div class="spk-logo">
-    <svg class="spk-crescent" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="22" cy="26" r="18" fill="#C9A227"/>
-      <circle cx="30" cy="20" r="13" fill="#00401A"/>
-      <polygon points="38,12 39.4,16.4 44,16.5 40.4,19.2 41.8,23.6 38,21 34.2,23.6 35.6,19.2 32,16.5 36.6,16.4" fill="#C9A227"/>
-    </svg>
-    <div class="spk-text">
-      <div class="spk-en">SoachPK <span class="spk-badge">AI</span></div>
-      <div class="spk-ur">سوچ پی کے</div>
-    </div>
+  <div class="logo-wrap">
+    <div class="logo-en"><span>Soch</span>AI Pakistan 🇵🇰</div>
+    <div class="logo-ur">سوچ اے آئی پاکستان — Think with AI</div>
   </div>
   <ul class="nav-links">
     <li><a href="#how">How It Works</a></li>
@@ -280,7 +306,7 @@ footer { border-top: 1px solid rgba(10,92,40,0.22); padding: 2.8rem 3rem; displa
       <button class="lang-btn active" id="btnEn" onclick="setLang('en')">EN</button>
       <button class="lang-btn" id="btnUr" onclick="setLang('ur')">اردو</button>
     </div>
-    <a href="#pricing" class="nav-cta">ابھی شروع کریں</a>
+    <a href="#pricing" class="nav-cta">سوچنا شروع کریں</a>
   </div>
 </nav>
 
@@ -298,51 +324,69 @@ footer { border-top: 1px solid rgba(10,92,40,0.22); padding: 2.8rem 3rem; displa
 
   <div class="hero-badge">
     <span class="badge-dot"></span>
-    <span class="badge-en">Pakistan's AI Platform</span>
-    <span class="badge-ur">پاکستان کا AI پلیٹ فارم</span>
+    <span class="badge-en">Launching Soon — Join the Waitlist</span>
+    <span class="badge-ur">جلد آ رہا ہے — ویٹنگ لسٹ میں شامل ہوں</span>
   </div>
 
   <h1>
-    <span class="h1-ur">ذہین سوچ، روشن مستقبل</span>
+    <span class="h1-ur">سوچو، سیکھو، آگے بڑھو</span>
     <span class="h1-en">
-      <span class="gold">Soach</span><br>
-      <span class="outline">PK</span><br>
-      AI
+      <span class="gold">Soch</span><br>
+      <span class="outline">AI</span><br>
+      Pakistan
     </span>
   </h1>
 
   <div class="hero-sub">
-    <span class="sub-en">Pay a minimal amount. Unlock the world's most powerful AI. For every Pakistani — students, freelancers, businesses & everyone in between.</span>
-    <span class="sub-ur">سوچ پی کے — تھوڑی سی رقم دیں، دنیا کے سب سے طاقتور AI تک رسائی پائیں</span>
+    <span class="sub-en">Pakistan's smartest AI platform. Powered by Claude — the world's most capable AI. Pay in PKR, think without limits.</span>
+    <span class="sub-ur">پاکستان کا ذہین ترین AI پلیٹ فارم — سوچو بے محدود، ادائیگی پاکستانی روپے میں</span>
   </div>
 
-  <div class="hero-btns">
-    <a href="#pricing" class="btn-gold">ابھی شروع کریں — Rs.50 سے</a>
-    <a href="#how" class="btn-outline">SoachPK کیسے کام کرتا ہے؟</a>
+  <div class="wl-form-wrap">
+    <div class="wl-success" id="heroSuccess" style="display:none">
+      <div style="font-size:2rem;margin-bottom:0.5rem">🎉</div>
+      <div class="wl-success-en">You're on the list! We'll notify you at launch.</div>
+      <span class="wl-success-ur">آپ ویٹنگ لسٹ میں شامل ہو گئے — لانچ پر اطلاع ملے گی</span>
+    </div>
+    <form class="wl-form" id="heroForm">
+      <input type="text" name="name" class="wl-input" placeholder="آپ کا نام — Your Name" required/>
+      <div class="wl-row">
+        <input type="email" name="email" class="wl-input" placeholder="Email Address" required/>
+        <select name="role" class="wl-select">
+          <option value="">میں ہوں...</option>
+          <option value="student">🎓 Student</option>
+          <option value="freelancer">💼 Freelancer</option>
+          <option value="shopowner">🏪 Shop Owner</option>
+          <option value="developer">👩‍💻 Developer</option>
+          <option value="teacher">🧑‍🏫 Teacher</option>
+          <option value="professional">🏥 Professional</option>
+          <option value="other">🌐 Other</option>
+        </select>
+      </div>
+      <button type="submit" id="heroBtnSubmit" class="wl-btn">🇵🇰 ویٹنگ لسٹ میں شامل ہوں — Join Waitlist</button>
+      <p class="wl-privacy">No spam. Launch hone par sirf ek email milegi.
+        <span>کوئی اسپام نہیں — صرف لانچ کی اطلاع</span>
+      </p>
+    </form>
   </div>
 
-  <div class="stat-strip">
-    <div class="stat-item">
-      <div class="stat-num">Rs.50</div>
-      <div class="stat-en">Starting Price</div>
-      <span class="stat-ur">شروعاتی قیمت</span>
+  <div class="counter-strip">
+    <div class="counter-pill">
+      <span class="counter-dot-live"></span>
+      <span class="counter-num" id="waitlistCount">0</span>
+      <span class="counter-label">WAITING</span>
     </div>
-    <div class="stat-item">
-      <div class="stat-num">60</div>
-      <div class="stat-en">Min Session</div>
-      <span class="stat-ur">منٹ سیشن</span>
+    <div class="counter-pill">
+      <span class="counter-num">Rs.199</span>
+      <span class="counter-label">DAY PASS</span>
     </div>
-    <div class="stat-item">
-      <div class="stat-num">∞</div>
-      <div class="stat-en">Use Cases</div>
-      <span class="stat-ur">بے محدود</span>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">🇵🇰</div>
-      <div class="stat-en">For Pakistan</div>
-      <span class="stat-ur">پاکستان کے لیے</span>
+    <div class="counter-pill">
+      <span class="counter-num">🔒</span>
+      <span class="counter-label">EARLY ACCESS PRICE</span>
     </div>
   </div>
+
+
 </section>
 
 <!-- MARQUEE -->
@@ -379,8 +423,8 @@ footer { border-top: 1px solid rgba(10,92,40,0.22); padding: 2.8rem 3rem; displa
         <div class="step-icon">📋</div>
         <div class="step-title-en">Choose Your Plan</div>
         <span class="step-title-ur">اپنا پلان منتخب کریں</span>
-        <div class="step-desc">Pick trial, standard, daily or monthly — all paid in PKR.</div>
-        <span class="step-desc-ur">ٹرائل سے ماہانہ تک — پاکستانی روپے میں ادائیگی</span>
+        <div class="step-desc">Day Pass, Weekly or Monthly — no time pressure, all paid in PKR.</div>
+        <span class="step-desc-ur">یومیہ، ہفتہ وار یا ماہانہ — کوئی ٹائمر نہیں، پاکستانی روپے میں</span>
       </div>
       <div class="step-card">
         <div class="step-num-bg">02</div>
@@ -392,11 +436,11 @@ footer { border-top: 1px solid rgba(10,92,40,0.22); padding: 2.8rem 3rem; displa
       </div>
       <div class="step-card">
         <div class="step-num-bg">03</div>
-        <div class="step-icon">⏱️</div>
-        <div class="step-title-en">Session Starts</div>
-        <span class="step-title-ur">سیشن شروع</span>
-        <div class="step-desc">60-minute countdown begins. Extend before it runs out.</div>
-        <span class="step-desc-ur">۶۰ منٹ کا ٹائمر شروع — ختم ہونے سے پہلے بڑھائیں</span>
+        <div class="step-icon">🚀</div>
+        <div class="step-title-en">Instant Access</div>
+        <span class="step-title-ur">فوری رسائی</span>
+        <div class="step-desc">Payment confirmed — unlimited Claude access starts immediately. No timer, no pressure.</div>
+        <span class="step-desc-ur">ادائیگی کے ساتھ ہی Claude تک بے محدود رسائی — کوئی ٹائمر نہیں</span>
       </div>
       <div class="step-card">
         <div class="step-num-bg">04</div>
@@ -415,7 +459,7 @@ footer { border-top: 1px solid rgba(10,92,40,0.22); padding: 2.8rem 3rem; displa
   <div class="inner">
     <div class="sec-label">سب کے لیے • For Everyone</div>
     <span class="sec-title-ur">ہر پاکستانی کے لیے</span>
-    <h2 class="sec-title">Who Uses <em>Claude Club?</em></h2>
+    <h2 class="sec-title">Who Uses <em>SochAI?</em></h2>
     <div class="use-grid">
       <div class="use-card"><div class="use-icon">🎓</div><div class="use-en">Students</div><span class="use-ur">طلباء</span><div class="use-desc">Matric, FA, BSc, university assignments</div><span class="use-desc-ur">میٹرک، بی ایس سی، امتحانی تیاری</span></div>
       <div class="use-card"><div class="use-icon">💼</div><div class="use-en">Freelancers</div><span class="use-ur">فری لانسرز</span><div class="use-desc">Fiverr & Upwork proposals, client emails</div><span class="use-desc-ur">فائیور، اپ ورک پروپوزل</span></div>
@@ -464,34 +508,34 @@ footer { border-top: 1px solid rgba(10,92,40,0.22); padding: 2.8rem 3rem; displa
   </div>
 </section>
 
-<!-- TIMER -->
+<!-- VALUE COMPARISON -->
 <section>
-  <div class="inner" style="text-align:center;max-width:700px">
-    <div class="sec-label">لائیو سیشن • Live Session</div>
-    <span class="sec-title-ur">آپ کا ۶۰ منٹ کا ٹائمر</span>
-    <h2 class="sec-title">Your <em>Session Timer</em></h2>
-    <div class="timer-box">
-      <span class="t-ur-sub">سیشن فعال ہے — Claude آپ کی مدد کے لیے تیار ہے</span>
-      <div class="ring-wrap">
-        <svg width="180" height="180" viewBox="0 0 180 180">
-          <circle cx="90" cy="90" r="78" fill="none" stroke="rgba(10,92,40,0.2)" stroke-width="10"/>
-          <circle id="timerCircle" cx="90" cy="90" r="78" fill="none" stroke="#C9A227" stroke-width="10"
-            stroke-dasharray="490" stroke-dashoffset="0" stroke-linecap="round"
-            style="transition:stroke-dashoffset 1s linear,stroke 0.5s"/>
-        </svg>
-        <div class="ring-inner">
-          <div class="t-digits" id="timerDisplay">60:00</div>
-          <span class="t-ur-tiny">باقی وقت</span>
-        </div>
+  <div class="inner" style="text-align:center;max-width:760px">
+    <div class="sec-label">قیمت کا موازنہ • Value Comparison</div>
+    <span class="sec-title-ur">Netflix سے سستا، فائدہ لاکھوں گنا</span>
+    <h2 class="sec-title">Why <em>SochAI?</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.2rem;margin-top:2.8rem;">
+      <div style="background:var(--dark2);border:1px solid rgba(250,250,248,0.07);border-radius:8px;padding:1.8rem 1.2rem;">
+        <div style="font-size:1.8rem;margin-bottom:0.6rem">📺</div>
+        <div style="font-family:var(--en-font);font-weight:700;font-size:0.95rem;margin-bottom:0.2rem">Netflix</div>
+        <div style="font-family:var(--en-font);font-weight:900;font-size:1.6rem;color:rgba(250,250,248,0.3)">Rs.1,100</div>
+        <div style="font-size:0.7rem;color:rgba(250,250,248,0.28);margin-top:0.3rem">per month — entertainment only</div>
+        <span style="font-family:var(--urdu-font);font-size:0.72rem;direction:rtl;color:rgba(250,250,248,0.2);display:block;margin-top:0.2rem;line-height:2">صرف تفریح</span>
       </div>
-      <div class="t-warn" id="timerWarning">
-        ⚠️ صرف ۵ منٹ باقی!
-        <span class="t-warn-ur">Only 5 minutes remaining — extend now!</span>
+      <div style="background:var(--dark2);border:1px solid rgba(250,250,248,0.07);border-radius:8px;padding:1.8rem 1.2rem;">
+        <div style="font-size:1.8rem;margin-bottom:0.6rem">🤖</div>
+        <div style="font-family:var(--en-font);font-weight:700;font-size:0.95rem;margin-bottom:0.2rem">ChatGPT Plus</div>
+        <div style="font-family:var(--en-font);font-weight:900;font-size:1.6rem;color:rgba(250,250,248,0.3)">Rs.5,500</div>
+        <div style="font-size:0.7rem;color:rgba(250,250,248,0.28);margin-top:0.3rem">per month — USD billing only</div>
+        <span style="font-family:var(--urdu-font);font-size:0.72rem;direction:rtl;color:rgba(250,250,248,0.2);display:block;margin-top:0.2rem;line-height:2">ڈالر میں ادائیگی</span>
       </div>
-      <div class="t-ctrls">
-        <button class="tc tc-s" id="startBtn" onclick="toggleTimer()">▶ Demo شروع کریں</button>
-        <button class="tc tc-e" onclick="extendTimer()">+ ۳۰ منٹ بڑھائیں</button>
-        <button class="tc tc-r" onclick="resetTimer()">↺ ری سیٹ</button>
+      <div style="background:linear-gradient(145deg,rgba(10,92,40,0.2),var(--dark2));border:1px solid var(--gold);border-radius:8px;padding:1.8rem 1.2rem;position:relative;">
+        <div style="position:absolute;top:0;right:0;background:var(--gold);color:var(--dark);font-size:0.55rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.25rem 0.65rem;border-bottom-left-radius:6px">✦ بہترین انتخاب</div>
+        <div style="font-size:1.8rem;margin-bottom:0.6rem">🇵🇰</div>
+        <div style="font-family:var(--en-font);font-weight:700;font-size:0.95rem;margin-bottom:0.2rem">SochAI Pakistan</div>
+        <div style="font-family:var(--en-font);font-weight:900;font-size:1.6rem;color:var(--gold)">Rs.499</div>
+        <div style="font-size:0.7rem;color:rgba(250,250,248,0.5);margin-top:0.3rem">per week — PKR, no card needed</div>
+        <span style="font-family:var(--urdu-font);font-size:0.72rem;direction:rtl;color:rgba(201,162,39,0.6);display:block;margin-top:0.2rem;line-height:2">پاکستانی روپے میں</span>
       </div>
     </div>
   </div>
@@ -503,37 +547,103 @@ footer { border-top: 1px solid rgba(10,92,40,0.22); padding: 2.8rem 3rem; displa
     <div class="sec-label">قیمتیں • Pricing</div>
     <span class="sec-title-ur">سستی قیمت میں بہترین AI</span>
     <h2 class="sec-title">Simple <em>Pricing</em></h2>
-    <span class="pkr-note">پاکستانی روپے میں ادائیگی — کوئی چھپی فیس نہیں — فوری رسائی</span>
-    <div class="price-grid">
+    <span class="pkr-note">قیمتیں طے ہو گئی ہیں — ویٹنگ لسٹ والوں کو Early Access ملے گی</span>
+    <div class="price-grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));max-width:860px;margin-inline:auto;">
       <div class="p-card">
-        <div class="plan-en">Trial</div><span class="plan-ur">ٹرائل</span>
-        <div class="plan-pkr"><sup>Rs.</sup>50</div>
-        <div class="plan-dur-en">30 Minutes Session</div><span class="plan-dur-ur">۳۰ منٹ سیشن</span>
-        <ul class="feats"><li>Claude تک مکمل رسائی</li><li>۳۰ منٹ ٹائمر</li><li>چیٹ ہسٹری محفوظ</li><li>بنیادی پرامپٹ گائیڈ</li></ul>
-        <button class="p-btn p-btn-o">ٹرائی کریں</button>
+        <span class="cs-badge">Coming Soon</span>
+        <div class="plan-en">Day Pass</div><span class="plan-ur">یومیہ پاس</span>
+        <div class="plan-pkr"><sup>Rs.</sup>199</div>
+        <div class="plan-dur-en">Unlimited — 24 Hours</div><span class="plan-dur-ur">بے محدود — ۲۴ گھنٹے</span>
+        <ul class="feats">
+          <li>Claude تک مکمل رسائی</li>
+          <li>کوئی ٹائمر نہیں</li>
+          <li>بے محدود سوالات</li>
+          <li>چیٹ ہسٹری محفوظ</li>
+          <li>بنیادی پرامپٹ گائیڈ</li>
+        </ul>
+        <button class="p-btn-wl" onclick="scrollToWaitlist()">🔔 مجھے بتائیں جب لانچ ہو</button>
       </div>
       <div class="p-card hot">
         <div class="hot-tag">سب سے مقبول</div>
-        <div class="plan-en">Standard</div><span class="plan-ur">اسٹینڈرڈ</span>
-        <div class="plan-pkr"><sup>Rs.</sup>100</div>
-        <div class="plan-dur-en">60 Minutes Session</div><span class="plan-dur-ur">۶۰ منٹ سیشن</span>
-        <ul class="feats"><li>Claude تک مکمل رسائی</li><li>۶۰ منٹ ٹائمر</li><li>سیشن بڑھانے کا آپشن</li><li>چیٹ ہسٹری محفوظ</li><li>پرامپٹ لائبریری</li></ul>
-        <button class="p-btn p-btn-g">ابھی خریدیں</button>
+        <span class="cs-badge">Coming Soon</span>
+        <div class="plan-en">Weekly Pass</div><span class="plan-ur">ہفتہ وار پاس</span>
+        <div class="plan-pkr"><sup>Rs.</sup>499</div>
+        <div class="plan-dur-en">Unlimited — 7 Days</div><span class="plan-dur-ur">بے محدود — ۷ دن</span>
+        <ul class="feats">
+          <li>Claude تک مکمل رسائی</li>
+          <li>کوئی ٹائمر نہیں</li>
+          <li>بے محدود سوالات</li>
+          <li>چیٹ ہسٹری محفوظ</li>
+          <li>مکمل پرامپٹ لائبریری</li>
+          <li>لرننگ ہب رسائی</li>
+        </ul>
+        <button class="p-btn-wl hot-wl" onclick="scrollToWaitlist()">🎯 Early Access لیں</button>
       </div>
       <div class="p-card">
-        <div class="plan-en">Daily Pass</div><span class="plan-ur">روزانہ پاس</span>
-        <div class="plan-pkr"><sup>Rs.</sup>250</div>
-        <div class="plan-dur-en">Unlimited — 24 Hours</div><span class="plan-dur-ur">بے محدود — ۲۴ گھنٹے</span>
-        <ul class="feats"><li>بے محدود Claude رسائی</li><li>کوئی ٹائمر نہیں</li><li>ترجیحی رسائی</li><li>مکمل پرامپٹ لائبریری</li><li>لرننگ ہب رسائی</li></ul>
-        <button class="p-btn p-btn-o">ڈے پاس لیں</button>
-      </div>
-      <div class="p-card">
+        <span class="cs-badge">Coming Soon</span>
         <div class="plan-en">Monthly</div><span class="plan-ur">ماہانہ</span>
-        <div class="plan-pkr"><sup>Rs.</sup>1,500</div>
+        <div class="plan-pkr"><sup>Rs.</sup>1,499</div>
         <div class="plan-dur-en">Unlimited — 30 Days</div><span class="plan-dur-ur">بے محدود — ۳۰ دن</span>
-        <ul class="feats"><li>بے محدود Claude رسائی</li><li>کوئی ٹائمر نہیں</li><li>واٹس ایپ گروپ</li><li>ہفتہ وار ورکشاپ</li><li>ترجیحی سپورٹ</li><li>مکمل لرننگ ہب</li></ul>
-        <button class="p-btn p-btn-o">ماہانہ لیں</button>
+        <ul class="feats">
+          <li>Claude تک مکمل رسائی</li>
+          <li>کوئی ٹائمر نہیں</li>
+          <li>واٹس ایپ گروپ</li>
+          <li>ہفتہ وار ورکشاپ</li>
+          <li>ترجیحی سپورٹ</li>
+          <li>مکمل لرننگ ہب</li>
+        </ul>
+        <button class="p-btn-wl" onclick="scrollToWaitlist()">🔔 مجھے بتائیں جب لانچ ہو</button>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST SECTION -->
+<section id="waitlist" class="wl-section">
+  <div class="inner">
+    <div class="sec-label" style="color:rgba(255,255,255,0.5)">ویٹنگ لسٹ • Join Waitlist</div>
+    <span class="sec-title-ur" style="color:rgba(255,255,255,0.45)">پہلے آئیں، پہلے پائیں</span>
+    <h2 class="sec-title" style="color:var(--white)">Get <em style="color:var(--gold2)">Early Access</em></h2>
+    <div class="wl-box">
+      <div class="early-perks">
+        <span class="perk">🎯 <strong>Early Access</strong> — pehle launch</span>
+        <span class="perk">💰 <strong>Launch Price</strong> lock hogi</span>
+        <span class="perk">📱 <strong>WhatsApp</strong> group mein add</span>
+        <span class="perk">📚 <strong>Free</strong> Prompt Guide</span>
+      </div>
+      <div class="wl-success" id="wlSuccess" style="display:none">
+        <div style="font-size:2.5rem;margin-bottom:0.6rem">🎉</div>
+        <div class="wl-success-en">You're on the list! We'll notify you at launch.</div>
+        <span class="wl-success-ur">شکریہ! آپ ویٹنگ لسٹ میں شامل ہو گئے — لانچ پر سب سے پہلے اطلاع ملے گی</span>
+      </div>
+      <form class="wl-form" id="wlForm">
+        <input type="text" name="name" class="wl-input" placeholder="آپ کا نام — Your Name" required/>
+        <input type="email" name="email" class="wl-input" placeholder="Email Address" required/>
+        <div class="wl-row">
+          <select name="role" class="wl-select">
+            <option value="">میں ہوں — I am a...</option>
+            <option value="student">🎓 Student</option>
+            <option value="freelancer">💼 Freelancer</option>
+            <option value="shopowner">🏪 Shop Owner</option>
+            <option value="developer">👩‍💻 Developer</option>
+            <option value="teacher">🧑‍🏫 Teacher</option>
+            <option value="professional">🏥 Professional</option>
+            <option value="other">🌐 Other</option>
+          </select>
+          <select name="plan" class="wl-select">
+            <option value="">پلان؟ Plan?</option>
+            <option value="daily">Rs.199 Day Pass</option>
+            <option value="weekly">Rs.499 Weekly ⭐</option>
+            <option value="monthly">Rs.1,499 Monthly</option>
+          </select>
+        </div>
+        <button type="submit" id="wlBtnSubmit" class="wl-btn" style="width:100%;padding:1rem;font-size:0.95rem;">
+          🇵🇰 ویٹنگ لسٹ میں شامل ہوں — Join the Waitlist
+        </button>
+        <p class="wl-privacy">کوئی اسپام نہیں۔ صرف لانچ کی اطلاع ملے گی۔
+          <span>No spam — one email when we launch. That's it.</span>
+        </p>
+      </form>
     </div>
   </div>
 </section>
@@ -597,8 +707,8 @@ footer { border-top: 1px solid rgba(10,92,40,0.22); padding: 2.8rem 3rem; displa
       <div class="d-card"><div class="d-name">GoDaddy</div><div class="d-price">~$12–15 / year</div><div class="d-desc-en">Most popular globally. Easy to manage. Watch renewal prices.</div><span class="d-desc-ur">دنیا کا مشہور ڈومین فراہم کنندہ</span></div>
     </div>
     <div class="domain-tip">
-      <p>💡 Recommended: <strong>claudeclubpakistan.com</strong> or <strong>claudeclub.com.pk</strong></p>
-      <span class="ur-tip">تجویز: claudeclubpakistan.com یا claudeclub.com.pk — دونوں میں سے ایک ابھی خریدیں</span>
+      <p>✅ <strong>sochpk.com</strong> — registered & ready to launch!</p>
+      <span class="ur-tip">ڈومین محفوظ ہو گیا — sochpk.com — اب ویب سائٹ لائیو کریں</span>
     </div>
   </div>
 </section>
@@ -606,29 +716,22 @@ footer { border-top: 1px solid rgba(10,92,40,0.22); padding: 2.8rem 3rem; displa
 <!-- CTA -->
 <section class="cta-section">
   <div class="cta-glow"></div>
-  <span class="cta-ur">آج ہی شروع کریں — صرف پچاس روپے میں</span>
-  <div class="cta-en">Join <em>SoachPK</em><br>Pakistan 🇵🇰</div>
-  <div class="cta-sub">Start for just Rs.50 — no hidden fees, instant access.<span class="cta-sub-ur">کوئی چھپی فیس نہیں — فوری رسائی — پاکستان کا AI پلیٹ فارم</span></div>
-  <a href="#pricing" class="btn-gold">ابھی شروع کریں — Rs.50 سے 🇵🇰</a>
+  <span class="cta-ur">پاکستان کا پہلا AI پلیٹ فارم — جلد آ رہا ہے</span>
+  <div class="cta-en">Think Smarter<br>with <em>SochAI</em> 🇵🇰</div>
+  <div class="cta-sub">Pakistan's first AI platform powered by Claude. Launching soon on sochpk.com<span class="cta-sub-ur">پاکستان کا پہلا AI پلیٹ فارم — sochpk.com — جلد لانچ ہو رہا ہے</span></div>
+  <a href="#waitlist" class="btn-gold" style="margin-top:2.5rem;display:inline-block;position:relative;z-index:1;font-size:1rem;" onclick="scrollToWaitlist()">🔔 ویٹنگ لسٹ میں شامل ہوں 🇵🇰</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="spk-logo">
-    <svg style="width:28px;height:28px;flex-shrink:0" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="22" cy="26" r="18" fill="#C9A227"/>
-      <circle cx="30" cy="20" r="13" fill="#00401A"/>
-      <polygon points="38,12 39.4,16.4 44,16.5 40.4,19.2 41.8,23.6 38,21 34.2,23.6 35.6,19.2 32,16.5 36.6,16.4" fill="#C9A227"/>
-    </svg>
-    <div class="spk-text">
-      <div class="spk-en" style="font-size:0.9rem;">SoachPK <span class="spk-badge">AI</span></div>
-      <div class="spk-ur" style="font-size:0.65rem;">سوچ پی کے</div>
-    </div>
+  <div class="logo-wrap">
+    <div class="logo-en"><span>Soch</span>AI PK</div>
+    <div class="logo-ur">سوچ اے آئی پاکستان</div>
   </div>
   <div class="f-mid">
-    <p>© 2025 SoachPK — Pakistan AI Platform — Powered by Anthropic Claude API</p>
-    <span class="ur">© ۲۰۲۵ سوچ پی کے — پاکستان AI پلیٹ فارم — Anthropic کے Claude API کے ذریعے</span>
-    <p style="font-size:0.62rem;color:rgba(250,250,248,0.12);margin-top:0.3rem">Not affiliated with Anthropic, Inc. | sochpk.com</p>
+    <p>© 2025 SochAI Pakistan — sochpk.com — Powered by Anthropic Claude API</p>
+    <span class="ur">© ۲۰۲۵ سوچ اے آئی پاکستان — sochpk.com</span>
+    <p style="font-size:0.62rem;color:rgba(250,250,248,0.12);margin-top:0.3rem">Not affiliated with Anthropic, Inc. "Claude" is a trademark of Anthropic.</p>
   </div>
   <div style="font-size:2rem">🇵🇰</div>
 </footer>
@@ -648,31 +751,61 @@ function setLang(l) {
   document.getElementById('btnUr').classList.toggle('active', l==='ur');
 }
 
-// Timer
-const CIRC = 490;
-let total = 3600, remaining = total, running = false, iv = null;
-const circle = document.getElementById('timerCircle');
-const display = document.getElementById('timerDisplay');
-const warn = document.getElementById('timerWarning');
-const startBtn = document.getElementById('startBtn');
+// Waitlist counter
+function animateCounter(el, target, duration) {
+  let start = 0, step = target / (duration / 16);
+  let timer = setInterval(() => {
+    start = Math.min(start + step, target);
+    el.textContent = Math.floor(start);
+    if (start >= target) clearInterval(timer);
+  }, 16);
+}
+const countEl = document.getElementById('waitlistCount');
+let seedCount = 12;
+setTimeout(() => animateCounter(countEl, seedCount, 1800), 800);
 
-function updateTimer() {
-  const m = Math.floor(remaining/60).toString().padStart(2,'0');
-  const s = (remaining%60).toString().padStart(2,'0');
-  display.textContent = `${m}:${s}`;
-  circle.style.strokeDashoffset = CIRC*(1-remaining/total);
-  if (remaining<=300 && remaining>0) { circle.style.stroke='#e74c3c'; warn.style.display='block'; }
-  else { circle.style.stroke='#C9A227'; warn.style.display='none'; }
-  if (remaining<=0) { clearInterval(iv); running=false; startBtn.textContent='▶ Demo شروع کریں'; display.textContent='00:00'; setTimeout(()=>alert('⏰ سیشن ختم!\nSession ended — please purchase to continue.'),100); }
+// Scroll to waitlist
+function scrollToWaitlist() {
+  document.getElementById('waitlist').scrollIntoView({ behavior: 'smooth' });
 }
 
-function toggleTimer() {
-  if(running){clearInterval(iv);running=false;startBtn.textContent='▶ Demo شروع کریں';}
-  else{running=true;startBtn.textContent='⏸ روکیں';iv=setInterval(()=>{remaining--;updateTimer();},1000);}
+// Formspree fetch handler
+async function submitToFormspree(formId, btnId, successId) {
+  const form   = document.getElementById(formId);
+  const btn    = document.getElementById(btnId);
+  const success = document.getElementById(successId);
+  if (!form) return;
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    btn.textContent = '⏳ جمع ہو رہا ہے...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('https://formspree.io/f/xnjrjvnp', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+        seedCount++;
+        if (countEl) countEl.textContent = seedCount;
+      } else {
+        const data = await res.json();
+        btn.textContent = '❌ ' + (data.error || 'Error — Try Again');
+        btn.disabled = false;
+      }
+    } catch (err) {
+      btn.textContent = '❌ Network Error — Try Again';
+      btn.disabled = false;
+    }
+  });
 }
-function extendTimer(){remaining=Math.min(remaining+1800,total);updateTimer();}
-function resetTimer(){clearInterval(iv);running=false;remaining=total;startBtn.textContent='▶ Demo شروع کریں';updateTimer();}
-updateTimer();
+
+submitToFormspree('heroForm', 'heroBtnSubmit', 'heroSuccess');
+submitToFormspree('wlForm',   'wlBtnSubmit',   'wlSuccess');
 
 // Scroll reveal
 const obs = new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}}),{threshold:0.08});
