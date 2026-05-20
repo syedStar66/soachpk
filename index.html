@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ur" dir="ltr" id="htmlRoot">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SoachPK | سوچ پی کے — Pakistan AI Platform</title>
+<meta name="description" content="SoachPK — Pakistan's AI Platform. Affordable AI access for every Pakistani. سوچ پی کے — پاکستان کا AI پلیٹ فارم"/>
+<meta name="keywords" content="SoachPK, Pakistan AI, Claude AI Pakistan, AI platform Pakistan, سوچ پی کے"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --pk-green: #00401A;
+  --pk-green2: #0a5c28;
+  --pk-green3: #0f7a36;
+  --gold: #C9A227;
+  --gold2: #e6be45;
+  --white: #FAFAF8;
+  --dark: #060e08;
+  --dark2: #0b1a0d;
+  --urdu-font: 'Noto Nastaliq Urdu', serif;
+  --en-font: 'Playfair Display', serif;
+  --body-font: 'DM Sans', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--body-font); background: var(--dark); color: var(--white); overflow-x: hidden; cursor: none; }
+
+/* SOACHPK INLINE LOGO */
+.spk-logo { display:flex; align-items:center; gap:0.6rem; }
+.spk-crescent { width:34px; height:34px; flex-shrink:0; }
+.spk-text { display:flex; flex-direction:column; }
+.spk-en { font-family:var(--en-font); font-weight:900; font-size:1.05rem; color:var(--white); line-height:1.1; display:flex; align-items:center; gap:5px; }
+.spk-badge { background:var(--gold); color:var(--pk-green); font-family:var(--body-font); font-weight:700; font-size:0.55rem; padding:0.1rem 0.38rem; border-radius:3px; letter-spacing:0.04em; }
+.spk-ur { font-family:var(--urdu-font); direction:rtl; color:rgba(201,162,39,0.65); font-size:0.72rem; line-height:1.8; }
+.cursor { width: 18px; height: 18px; border: 2px solid var(--gold); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width 0.2s, height 0.2s, background 0.2s; }
+.cursor-dot { width: 4px; height: 4px; background: var(--gold); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); }
+
+/* GEO BACKGROUND */
+.geo-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.035; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 0 L80 20 L80 60 L40 80 L0 60 L0 20 Z' fill='none' stroke='%23C9A227' stroke-width='0.8'/%3E%3Cpath d='M40 10 L70 25 L70 55 L40 70 L10 55 L10 25 Z' fill='none' stroke='%23C9A227' stroke-width='0.5'/%3E%3Ccircle cx='40' cy='40' r='12' fill='none' stroke='%23C9A227' stroke-width='0.5'/%3E%3Cline x1='40' y1='0' x2='40' y2='80' stroke='%23C9A227' stroke-width='0.3'/%3E%3Cline x1='0' y1='40' x2='80' y2='40' stroke='%23C9A227' stroke-width='0.3'/%3E%3C/svg%3E"); }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 1rem 3rem; background: rgba(6,14,8,0.94); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(201,162,39,0.18); }
+.logo-wrap { display: flex; flex-direction: column; }
+.logo-en { font-family: var(--en-font); font-weight: 900; font-size: 1.1rem; color: var(--white); line-height: 1.1; }
+.logo-en span { color: var(--gold); }
+.logo-ur { font-family: var(--urdu-font); font-size: 0.8rem; color: rgba(201,162,39,0.65); line-height: 1.6; direction: rtl; }
+.nav-right { display: flex; align-items: center; gap: 1.5rem; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 0.76rem; font-weight: 500; letter-spacing: 0.06em; color: rgba(250,250,248,0.5); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--gold); }
+.lang-toggle { display: flex; background: rgba(201,162,39,0.1); border: 1px solid rgba(201,162,39,0.25); border-radius: 100px; overflow: hidden; }
+.lang-btn { padding: 0.32rem 0.9rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em; background: transparent; color: rgba(250,250,248,0.4); border: none; cursor: pointer; transition: all 0.2s; }
+.lang-btn.active { background: var(--gold); color: var(--dark); }
+.nav-cta { background: var(--gold); color: var(--dark); font-family: var(--en-font); font-weight: 700; font-size: 0.82rem; padding: 0.55rem 1.4rem; border-radius: 3px; text-decoration: none; transition: background 0.2s; }
+.nav-cta:hover { background: var(--gold2); }
+
+/* HERO */
+.hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8rem 2rem 5rem; position: relative; overflow: hidden; }
+.hero-glow { position: absolute; top: 40%; left: 50%; transform: translate(-50%,-50%); width: 800px; height: 600px; background: radial-gradient(ellipse, rgba(10,92,40,0.28) 0%, transparent 65%); pointer-events: none; }
+.flag-stripe { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(to bottom, var(--pk-green), var(--pk-green3), var(--pk-green)); }
+
+/* Crescent */
+.crescent-deco { position: absolute; top: 8%; right: 5%; width: 110px; height: 110px; opacity: 0.07; animation: floatC 7s ease-in-out infinite; }
+@keyframes floatC { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-12px) rotate(4deg)} }
+
+.hero-badge { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(201,162,39,0.08); border: 1px solid rgba(201,162,39,0.28); border-radius: 100px; padding: 0.45rem 1.1rem; margin-bottom: 2.2rem; position: relative; z-index: 1; animation: fadeUp 0.6s ease both; }
+.badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(1.5)} }
+.badge-en { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+.badge-ur { font-family: var(--urdu-font); font-size: 0.82rem; color: rgba(201,162,39,0.7); direction: rtl; }
+
+.hero h1 { position: relative; z-index: 1; animation: fadeUp 0.7s 0.1s ease both; }
+.h1-ur { display: block; font-family: var(--urdu-font); font-size: clamp(1.5rem,4vw,2.8rem); color: rgba(250,250,248,0.5); direction: rtl; line-height: 1.8; margin-bottom: 0.5rem; }
+.h1-en { display: block; font-family: var(--en-font); font-weight: 900; font-size: clamp(3.5rem,9vw,7rem); line-height: 0.92; letter-spacing: -0.03em; }
+.h1-en .gold { color: var(--gold); }
+.h1-en .outline { -webkit-text-stroke: 2px rgba(201,162,39,0.45); color: transparent; }
+
+.hero-sub { max-width: 540px; margin: 1.8rem auto 0; position: relative; z-index: 1; animation: fadeUp 0.7s 0.2s ease both; }
+.sub-en { font-size: 0.98rem; font-weight: 300; line-height: 1.7; color: rgba(250,250,248,0.6); }
+.sub-ur { font-family: var(--urdu-font); font-size: 0.95rem; color: rgba(201,162,39,0.55); direction: rtl; line-height: 2.2; display: block; margin-top: 0.5rem; }
+
+.hero-btns { display: flex; gap: 1rem; margin-top: 2.8rem; flex-wrap: wrap; justify-content: center; position: relative; z-index: 1; animation: fadeUp 0.7s 0.3s ease both; }
+.btn-gold { background: var(--gold); color: var(--dark); font-family: var(--en-font); font-weight: 700; font-size: 0.9rem; padding: 0.9rem 2.2rem; border-radius: 3px; text-decoration: none; border: none; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 24px rgba(201,162,39,0.2); }
+.btn-gold:hover { background: var(--gold2); transform: translateY(-2px); }
+.btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(250,250,248,0.18); font-family: var(--en-font); font-weight: 700; font-size: 0.9rem; padding: 0.9rem 2.2rem; border-radius: 3px; text-decoration: none; cursor: pointer; transition: all 0.2s; }
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+.stat-strip { display: flex; margin-top: 4rem; position: relative; z-index: 1; border: 1px solid rgba(201,162,39,0.18); border-radius: 8px; overflow: hidden; animation: fadeUp 0.7s 0.4s ease both; }
+.stat-item { flex: 1; padding: 1.4rem 1rem; text-align: center; border-right: 1px solid rgba(201,162,39,0.12); background: rgba(10,92,40,0.07); transition: background 0.2s; }
+.stat-item:last-child { border-right: none; }
+.stat-item:hover { background: rgba(201,162,39,0.07); }
+.stat-num { font-family: var(--en-font); font-weight: 900; font-size: 1.8rem; color: var(--gold); line-height: 1; }
+.stat-en { font-size: 0.65rem; letter-spacing: 0.07em; text-transform: uppercase; color: rgba(250,250,248,0.3); margin-top: 0.2rem; }
+.stat-ur { font-family: var(--urdu-font); font-size: 0.68rem; color: rgba(201,162,39,0.45); direction: rtl; display: block; margin-top: 0.1rem; }
+
+/* MARQUEE */
+.marquee-strip { border-top: 1px solid rgba(201,162,39,0.12); border-bottom: 1px solid rgba(201,162,39,0.12); background: var(--pk-green); padding: 0.75rem 0; overflow: hidden; position: relative; z-index: 1; }
+.mq-inner { display: flex; width: max-content; animation: scroll 22s linear infinite; }
+.mq-item { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0 2rem; border-right: 1px solid rgba(255,255,255,0.1); }
+.mq-en { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.65); }
+.mq-ur { font-family: var(--urdu-font); font-size: 0.78rem; color: rgba(255,255,255,0.45); direction: rtl; }
+@keyframes scroll { to { transform: translateX(-50%); } }
+
+/* SECTIONS */
+section { padding: 5.5rem 2rem; position: relative; z-index: 1; }
+.inner { max-width: 1100px; margin-inline: auto; }
+.sec-label { font-size: 0.67rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem; }
+.sec-label::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+.sec-title-ur { display: block; font-family: var(--urdu-font); font-size: clamp(1.1rem,2.5vw,1.6rem); direction: rtl; color: rgba(201,162,39,0.55); line-height: 2; margin-bottom: 0.3rem; }
+.sec-title { font-family: var(--en-font); font-weight: 900; font-size: clamp(2rem,4.5vw,3rem); line-height: 1.05; letter-spacing: -0.02em; }
+.sec-title em { font-style: normal; color: var(--gold); }
+
+/* HOW IT WORKS */
+.hiw-bg { background: var(--dark2); }
+.hiw-steps { display: grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap: 1px; margin-top: 3.5rem; background: rgba(201,162,39,0.07); border: 1px solid rgba(201,162,39,0.1); }
+.step-card { background: var(--dark2); padding: 2.8rem 1.8rem; position: relative; transition: background 0.3s; }
+.step-card:hover { background: rgba(10,92,40,0.12); }
+.step-num-bg { font-family: var(--en-font); font-weight: 900; font-size: 5rem; color: rgba(201,162,39,0.07); line-height: 1; position: absolute; top: 1.2rem; right: 1.2rem; }
+.step-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+.step-title-en { font-family: var(--en-font); font-weight: 700; font-size: 1.05rem; margin-bottom: 0.2rem; }
+.step-title-ur { font-family: var(--urdu-font); font-size: 0.85rem; color: var(--gold); direction: rtl; display: block; margin-bottom: 0.7rem; }
+.step-desc { font-size: 0.8rem; line-height: 1.7; color: rgba(250,250,248,0.48); }
+.step-desc-ur { font-family: var(--urdu-font); font-size: 0.78rem; direction: rtl; color: rgba(250,250,248,0.28); display: block; margin-top: 0.4rem; line-height: 2.1; }
+
+/* USE CASES */
+.use-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(195px,1fr)); gap: 1.1rem; margin-top: 3.2rem; }
+.use-card { background: var(--dark2); border: 1px solid rgba(10,92,40,0.28); border-radius: 6px; padding: 1.8rem 1.4rem; transition: border-color 0.3s, transform 0.25s; position: relative; overflow: hidden; }
+.use-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--pk-green3), var(--gold)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+.use-card:hover { border-color: rgba(201,162,39,0.38); transform: translateY(-5px); }
+.use-card:hover::after { transform: scaleX(1); }
+.use-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+.use-en { font-family: var(--en-font); font-weight: 700; font-size: 0.95rem; margin-bottom: 0.2rem; }
+.use-ur { font-family: var(--urdu-font); font-size: 0.82rem; color: var(--gold); direction: rtl; display: block; margin-bottom: 0.5rem; }
+.use-desc { font-size: 0.75rem; color: rgba(250,250,248,0.38); line-height: 1.6; }
+.use-desc-ur { font-family: var(--urdu-font); font-size: 0.73rem; direction: rtl; color: rgba(250,250,248,0.22); display: block; margin-top: 0.25rem; line-height: 2; }
+
+/* LOCAL EXAMPLES */
+.local-section { background: var(--pk-green); }
+.local-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 3rem; background: rgba(0,0,0,0.18); }
+@media(max-width:640px){.local-grid{grid-template-columns:1fr;}}
+.local-card { background: rgba(1,65,28,0.55); padding: 1.8rem; border: 1px solid rgba(255,255,255,0.07); transition: background 0.2s; }
+.local-card:hover { background: rgba(1,65,28,0.8); }
+.local-tag { font-family: var(--urdu-font); font-size: 0.82rem; direction: rtl; color: rgba(255,255,255,0.4); display: block; margin-bottom: 1rem; }
+.bubble-user { background: rgba(255,255,255,0.1); border-radius: 10px 10px 10px 2px; padding: 0.75rem 1rem; margin-bottom: 0.8rem; display: inline-block; max-width: 88%; }
+.bubble-ai { background: rgba(201,162,39,0.14); border: 1px solid rgba(201,162,39,0.22); border-radius: 10px 10px 2px 10px; padding: 0.75rem 1rem; display: inline-block; max-width: 88%; float: right; clear: both; }
+.bl { font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 0.2rem; display: block; }
+.bt-ur { font-family: var(--urdu-font); font-size: 0.85rem; direction: rtl; line-height: 2; color: rgba(255,255,255,0.82); }
+.bt-en { font-size: 0.8rem; color: rgba(255,255,255,0.68); line-height: 1.5; }
+.bt-ai { font-size: 0.8rem; color: var(--gold); line-height: 1.6; }
+.bt-ai-ur { font-family: var(--urdu-font); font-size: 0.82rem; direction: rtl; color: rgba(201,162,39,0.78); line-height: 2; display: block; }
+.cf::after { content: ''; display: table; clear: both; }
+
+/* TIMER */
+.timer-section .inner { max-width: 700px; margin-inline: auto; text-align: center; }
+.timer-box { margin-top: 3rem; background: var(--dark2); border: 1px solid rgba(10,92,40,0.28); border-radius: 12px; padding: 3.5rem 2rem; position: relative; overflow: hidden; }
+.timer-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--pk-green), var(--gold), var(--pk-green)); }
+.t-ur-sub { font-family: var(--urdu-font); font-size: 0.92rem; direction: rtl; color: rgba(201,162,39,0.55); display: block; margin-bottom: 1.5rem; }
+.ring-wrap { position: relative; width: 180px; height: 180px; margin: 0 auto 1.5rem; }
+.ring-wrap svg { transform: rotate(-90deg); }
+.ring-inner { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center; }
+.t-digits { font-family: var(--en-font); font-weight: 900; font-size: 2.3rem; color: var(--gold); line-height: 1; }
+.t-ur-tiny { font-family: var(--urdu-font); font-size: 0.6rem; color: rgba(201,162,39,0.45); direction: rtl; display: block; margin-top: 0.2rem; }
+.t-warn { background: rgba(192,57,43,0.13); border: 1px solid rgba(192,57,43,0.28); color: #e74c3c; border-radius: 6px; padding: 0.65rem 1.1rem; font-size: 0.8rem; display: none; margin: 1rem auto; max-width: 380px; }
+.t-warn-ur { font-family: var(--urdu-font); direction: rtl; display: block; font-size: 0.82rem; margin-top: 0.2rem; }
+.t-ctrls { display: flex; gap: 0.8rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap; }
+.tc { font-family: var(--en-font); font-weight: 700; font-size: 0.76rem; letter-spacing: 0.04em; padding: 0.6rem 1.4rem; border-radius: 3px; cursor: pointer; border: none; transition: all 0.2s; }
+.tc-s { background: var(--gold); color: var(--dark); }
+.tc-s:hover { background: var(--gold2); }
+.tc-e { background: var(--pk-green2); color: var(--white); }
+.tc-e:hover { background: var(--pk-green3); }
+.tc-r { background: transparent; color: rgba(250,250,248,0.45); border: 1px solid rgba(250,250,248,0.1); }
+.tc-r:hover { border-color: rgba(250,250,248,0.3); color: var(--white); }
+
+/* PRICING */
+.pricing-section { background: var(--dark2); }
+.pricing-section .inner { text-align: center; }
+.pkr-note { font-family: var(--urdu-font); font-size: 0.88rem; direction: rtl; color: rgba(201,162,39,0.55); display: block; margin-top: 0.4rem; }
+.price-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(215px,1fr)); gap: 1.4rem; margin-top: 3.5rem; }
+.p-card { background: var(--dark); border: 1px solid rgba(10,92,40,0.22); border-radius: 8px; padding: 2.4rem 1.7rem; position: relative; overflow: hidden; transition: transform 0.25s, border-color 0.3s; }
+.p-card:hover { transform: translateY(-8px); border-color: rgba(201,162,39,0.35); }
+.p-card.hot { border-color: var(--gold); background: linear-gradient(145deg,rgba(10,92,40,0.16),var(--dark)); }
+.hot-tag { position: absolute; top: 0; right: 0; background: var(--gold); color: var(--dark); font-size: 0.56rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.28rem 0.75rem; border-bottom-left-radius: 6px; }
+.plan-en { font-family: var(--en-font); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(250,250,248,0.38); margin-bottom: 0.3rem; }
+.plan-ur { font-family: var(--urdu-font); font-size: 0.78rem; direction: rtl; color: rgba(201,162,39,0.55); display: block; margin-bottom: 0.9rem; }
+.plan-pkr { font-family: var(--en-font); font-weight: 900; font-size: 2.9rem; color: var(--gold); line-height: 1; }
+.plan-pkr sup { font-size: 1rem; }
+.plan-dur-en { font-size: 0.73rem; color: rgba(250,250,248,0.32); margin: 0.35rem 0 0.2rem; }
+.plan-dur-ur { font-family: var(--urdu-font); font-size: 0.72rem; direction: rtl; color: rgba(201,162,39,0.38); display: block; margin-bottom: 1.4rem; }
+.feats { list-style: none; text-align: right; margin-bottom: 1.8rem; direction: rtl; }
+.feats li { font-family: var(--urdu-font); font-size: 0.78rem; color: rgba(250,250,248,0.58); padding: 0.38rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; gap: 0.5rem; align-items: center; justify-content: flex-end; }
+.feats li::after { content: '✦'; color: var(--gold); font-size: 0.52rem; flex-shrink: 0; }
+.p-btn { width: 100%; padding: 0.82rem; border-radius: 3px; cursor: pointer; font-family: var(--en-font); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.04em; border: none; transition: all 0.2s; }
+.p-btn-g { background: var(--gold); color: var(--dark); }
+.p-btn-g:hover { background: var(--gold2); }
+.p-btn-o { background: transparent; color: var(--gold); border: 1px solid rgba(201,162,39,0.32); }
+.p-btn-o:hover { background: rgba(201,162,39,0.07); }
+
+/* PAYMENT */
+.pay-grid { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.2rem; }
+.pay-card { background: var(--dark2); border: 1px solid rgba(10,92,40,0.22); border-radius: 8px; padding: 1.1rem 1.6rem; display: flex; align-items: center; gap: 0.8rem; transition: border-color 0.25s, transform 0.2s; }
+.pay-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+.pay-icon { font-size: 1.5rem; }
+.pay-name-en { font-size: 0.83rem; font-weight: 500; }
+.pay-name-ur { font-family: var(--urdu-font); font-size: 0.72rem; direction: rtl; color: rgba(201,162,39,0.45); display: block; }
+
+/* PLATFORMS */
+.pl-section { background: var(--dark2); }
+.platform-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 1.4rem; margin-top: 3rem; }
+.pl-card { background: var(--dark); border: 1px solid rgba(10,92,40,0.22); border-radius: 8px; padding: 2rem; transition: border-color 0.3s; }
+.pl-card:hover { border-color: rgba(201,162,39,0.32); }
+.pl-name { font-family: var(--en-font); font-weight: 700; font-size: 1.05rem; margin-bottom: 0.25rem; }
+.pl-tag { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; display: block; }
+.pl-desc { font-size: 0.78rem; color: rgba(250,250,248,0.42); line-height: 1.7; }
+.pl-pros { list-style: none; margin-top: 1rem; }
+.pl-pros li { font-size: 0.76rem; color: rgba(250,250,248,0.48); padding: 0.28rem 0; display: flex; gap: 0.5rem; }
+.pl-pros li::before { content: '✓'; color: var(--pk-green3); flex-shrink: 0; }
+
+/* DOMAIN */
+.domain-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(215px,1fr)); gap: 1.1rem; margin-top: 2.8rem; }
+.d-card { background: var(--dark2); border: 1px solid rgba(10,92,40,0.22); border-radius: 8px; padding: 1.7rem; transition: border-color 0.3s, transform 0.2s; }
+.d-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+.d-rec { display: inline-block; background: rgba(201,162,39,0.1); color: var(--gold); font-size: 0.56rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.18rem 0.55rem; border-radius: 2px; margin-bottom: 0.55rem; }
+.d-name { font-family: var(--en-font); font-weight: 700; font-size: 1rem; margin-bottom: 0.28rem; }
+.d-price { color: var(--gold); font-size: 0.83rem; font-weight: 600; margin-bottom: 0.55rem; }
+.d-desc-en { font-size: 0.76rem; color: rgba(250,250,248,0.38); line-height: 1.6; }
+.d-desc-ur { font-family: var(--urdu-font); font-size: 0.74rem; direction: rtl; color: rgba(250,250,248,0.22); display: block; margin-top: 0.25rem; line-height: 2; }
+.domain-tip { margin-top: 1.8rem; padding: 1.1rem 1.4rem; background: rgba(201,162,39,0.05); border: 1px solid rgba(201,162,39,0.18); border-radius: 6px; }
+.domain-tip p { font-size: 0.8rem; color: rgba(250,250,248,0.48); }
+.domain-tip strong { color: var(--gold); }
+.domain-tip .ur-tip { font-family: var(--urdu-font); direction: rtl; display: block; font-size: 0.78rem; color: rgba(201,162,39,0.42); margin-top: 0.25rem; line-height: 2; }
+
+/* CTA */
+.cta-section { text-align: center; padding: 8rem 2rem; position: relative; overflow: hidden; }
+.cta-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 500px; background: radial-gradient(ellipse, rgba(10,92,40,0.22) 0%, transparent 70%); pointer-events: none; }
+.cta-ur { font-family: var(--urdu-font); font-size: clamp(1.3rem,3.5vw,2.2rem); direction: rtl; color: rgba(201,162,39,0.55); display: block; line-height: 2; margin-bottom: 0.4rem; position: relative; z-index: 1; }
+.cta-en { font-family: var(--en-font); font-weight: 900; font-size: clamp(2.5rem,6vw,4.5rem); letter-spacing: -0.02em; line-height: 1; position: relative; z-index: 1; }
+.cta-en em { font-style: normal; color: var(--gold); }
+.cta-sub { color: rgba(250,250,248,0.48); font-size: 0.92rem; margin-top: 1rem; position: relative; z-index: 1; }
+.cta-sub-ur { font-family: var(--urdu-font); direction: rtl; display: block; font-size: 0.88rem; color: rgba(201,162,39,0.38); margin-top: 0.25rem; }
+.cta-section .btn-gold { margin-top: 2.5rem; display: inline-block; position: relative; z-index: 1; font-size: 1rem; }
+
+/* FOOTER */
+footer { border-top: 1px solid rgba(10,92,40,0.22); padding: 2.8rem 3rem; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 2rem; }
+.f-mid { text-align: center; }
+.f-mid p { font-size: 0.7rem; color: rgba(250,250,248,0.22); }
+.f-mid .ur { font-family: var(--urdu-font); direction: rtl; display: block; font-size: 0.72rem; color: rgba(201,162,39,0.28); margin-top: 0.15rem; }
+@media(max-width:768px){ nav{padding:0.8rem 1.2rem;} .nav-links{display:none;} footer{grid-template-columns:1fr;text-align:center;padding:2rem 1.5rem;} }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="geo-bg"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="spk-logo">
+    <svg class="spk-crescent" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="22" cy="26" r="18" fill="#C9A227"/>
+      <circle cx="30" cy="20" r="13" fill="#00401A"/>
+      <polygon points="38,12 39.4,16.4 44,16.5 40.4,19.2 41.8,23.6 38,21 34.2,23.6 35.6,19.2 32,16.5 36.6,16.4" fill="#C9A227"/>
+    </svg>
+    <div class="spk-text">
+      <div class="spk-en">SoachPK <span class="spk-badge">AI</span></div>
+      <div class="spk-ur">سوچ پی کے</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#usecases">Use Cases</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#platforms">Platforms</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btnEn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btnUr" onclick="setLang('ur')">اردو</button>
+    </div>
+    <a href="#pricing" class="nav-cta">ابھی شروع کریں</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="flag-stripe"></div>
+  <div class="hero-glow"></div>
+  <div class="crescent-deco">
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="45" fill="#C9A227"/>
+      <circle cx="64" cy="38" r="34" fill="#060e08"/>
+      <polygon points="72,18 75,30 86,26 79,35 86,42 74,39 72,51 68,40 57,44 65,35 57,27 69,31" fill="#C9A227"/>
+    </svg>
+  </div>
+
+  <div class="hero-badge">
+    <span class="badge-dot"></span>
+    <span class="badge-en">Pakistan's AI Platform</span>
+    <span class="badge-ur">پاکستان کا AI پلیٹ فارم</span>
+  </div>
+
+  <h1>
+    <span class="h1-ur">ذہین سوچ، روشن مستقبل</span>
+    <span class="h1-en">
+      <span class="gold">Soach</span><br>
+      <span class="outline">PK</span><br>
+      AI
+    </span>
+  </h1>
+
+  <div class="hero-sub">
+    <span class="sub-en">Pay a minimal amount. Unlock the world's most powerful AI. For every Pakistani — students, freelancers, businesses & everyone in between.</span>
+    <span class="sub-ur">سوچ پی کے — تھوڑی سی رقم دیں، دنیا کے سب سے طاقتور AI تک رسائی پائیں</span>
+  </div>
+
+  <div class="hero-btns">
+    <a href="#pricing" class="btn-gold">ابھی شروع کریں — Rs.50 سے</a>
+    <a href="#how" class="btn-outline">SoachPK کیسے کام کرتا ہے؟</a>
+  </div>
+
+  <div class="stat-strip">
+    <div class="stat-item">
+      <div class="stat-num">Rs.50</div>
+      <div class="stat-en">Starting Price</div>
+      <span class="stat-ur">شروعاتی قیمت</span>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">60</div>
+      <div class="stat-en">Min Session</div>
+      <span class="stat-ur">منٹ سیشن</span>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">∞</div>
+      <div class="stat-en">Use Cases</div>
+      <span class="stat-ur">بے محدود</span>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">🇵🇰</div>
+      <div class="stat-en">For Pakistan</div>
+      <span class="stat-ur">پاکستان کے لیے</span>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="mq-inner">
+    <div class="mq-item"><span class="mq-ur">ای میل لکھیں</span><span class="mq-en">Write Emails</span></div>
+    <div class="mq-item"><span class="mq-ur">اردو ترجمہ</span><span class="mq-en">Urdu Translation</span></div>
+    <div class="mq-item"><span class="mq-ur">کوڈ بنائیں</span><span class="mq-en">Code & Debug</span></div>
+    <div class="mq-item"><span class="mq-ur">کاروباری منصوبہ</span><span class="mq-en">Business Plans</span></div>
+    <div class="mq-item"><span class="mq-ur">تعلیمی مدد</span><span class="mq-en">Study Help</span></div>
+    <div class="mq-item"><span class="mq-ur">سوشل میڈیا</span><span class="mq-en">Social Media</span></div>
+    <div class="mq-item"><span class="mq-ur">فری لانس کام</span><span class="mq-en">Freelance Work</span></div>
+    <div class="mq-item"><span class="mq-ur">رپورٹس بنائیں</span><span class="mq-en">Write Reports</span></div>
+    <div class="mq-item"><span class="mq-ur">ای میل لکھیں</span><span class="mq-en">Write Emails</span></div>
+    <div class="mq-item"><span class="mq-ur">اردو ترجمہ</span><span class="mq-en">Urdu Translation</span></div>
+    <div class="mq-item"><span class="mq-ur">کوڈ بنائیں</span><span class="mq-en">Code & Debug</span></div>
+    <div class="mq-item"><span class="mq-ur">کاروباری منصوبہ</span><span class="mq-en">Business Plans</span></div>
+    <div class="mq-item"><span class="mq-ur">تعلیمی مدد</span><span class="mq-en">Study Help</span></div>
+    <div class="mq-item"><span class="mq-ur">سوشل میڈیا</span><span class="mq-en">Social Media</span></div>
+    <div class="mq-item"><span class="mq-ur">فری لانس کام</span><span class="mq-en">Freelance Work</span></div>
+    <div class="mq-item"><span class="mq-ur">رپورٹس بنائیں</span><span class="mq-en">Write Reports</span></div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="hiw-bg">
+  <div class="inner">
+    <div class="sec-label">آسان طریقہ • Simple Process</div>
+    <span class="sec-title-ur">صرف ۳ قدم میں شروع کریں</span>
+    <h2 class="sec-title">3 Steps to <em>AI Power</em></h2>
+    <div class="hiw-steps">
+      <div class="step-card">
+        <div class="step-num-bg">01</div>
+        <div class="step-icon">📋</div>
+        <div class="step-title-en">Choose Your Plan</div>
+        <span class="step-title-ur">اپنا پلان منتخب کریں</span>
+        <div class="step-desc">Pick trial, standard, daily or monthly — all paid in PKR.</div>
+        <span class="step-desc-ur">ٹرائل سے ماہانہ تک — پاکستانی روپے میں ادائیگی</span>
+      </div>
+      <div class="step-card">
+        <div class="step-num-bg">02</div>
+        <div class="step-icon">💳</div>
+        <div class="step-title-en">Pay via PayFast</div>
+        <span class="step-title-ur">پے فاسٹ سے ادائیگی</span>
+        <div class="step-desc">JazzCash, EasyPaisa or bank card. Instant activation.</div>
+        <span class="step-desc-ur">جاز کیش، ایزی پیسہ یا کارڈ — ادائیگی کے ساتھ ہی رسائی</span>
+      </div>
+      <div class="step-card">
+        <div class="step-num-bg">03</div>
+        <div class="step-icon">⏱️</div>
+        <div class="step-title-en">Session Starts</div>
+        <span class="step-title-ur">سیشن شروع</span>
+        <div class="step-desc">60-minute countdown begins. Extend before it runs out.</div>
+        <span class="step-desc-ur">۶۰ منٹ کا ٹائمر شروع — ختم ہونے سے پہلے بڑھائیں</span>
+      </div>
+      <div class="step-card">
+        <div class="step-num-bg">04</div>
+        <div class="step-icon">📚</div>
+        <div class="step-title-en">Learn & Grow</div>
+        <span class="step-title-ur">سیکھیں اور آگے بڑھیں</span>
+        <div class="step-desc">Urdu guides, prompt templates and weekly workshops.</div>
+        <span class="step-desc-ur">اردو رہنمائی، پرامپٹ ٹیمپلیٹس اور ہفتہ وار ورکشاپس</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section id="usecases">
+  <div class="inner">
+    <div class="sec-label">سب کے لیے • For Everyone</div>
+    <span class="sec-title-ur">ہر پاکستانی کے لیے</span>
+    <h2 class="sec-title">Who Uses <em>Claude Club?</em></h2>
+    <div class="use-grid">
+      <div class="use-card"><div class="use-icon">🎓</div><div class="use-en">Students</div><span class="use-ur">طلباء</span><div class="use-desc">Matric, FA, BSc, university assignments</div><span class="use-desc-ur">میٹرک، بی ایس سی، امتحانی تیاری</span></div>
+      <div class="use-card"><div class="use-icon">💼</div><div class="use-en">Freelancers</div><span class="use-ur">فری لانسرز</span><div class="use-desc">Fiverr & Upwork proposals, client emails</div><span class="use-desc-ur">فائیور، اپ ورک پروپوزل</span></div>
+      <div class="use-card"><div class="use-icon">🏪</div><div class="use-en">Shop Owners</div><span class="use-ur">دکاندار</span><div class="use-desc">WhatsApp messages, social media ads</div><span class="use-desc-ur">واٹس ایپ مسیجز، سوشل میڈیا</span></div>
+      <div class="use-card"><div class="use-icon">👩‍💻</div><div class="use-en">Developers</div><span class="use-ur">ڈویلپرز</span><div class="use-desc">Code, debug, APIs, documentation</div><span class="use-desc-ur">کوڈنگ، ڈیبگنگ، ڈاکومنٹیشن</span></div>
+      <div class="use-card"><div class="use-icon">✍️</div><div class="use-en">Content Creators</div><span class="use-ur">کنٹینٹ کریٹرز</span><div class="use-desc">YouTube scripts, Instagram captions</div><span class="use-desc-ur">یوٹیوب اسکرپٹ، کیپشنز</span></div>
+      <div class="use-card"><div class="use-icon">🧑‍🏫</div><div class="use-en">Teachers</div><span class="use-ur">اساتذہ</span><div class="use-desc">Lesson plans, exam papers</div><span class="use-desc-ur">سبق کے منصوبے، امتحانی پرچے</span></div>
+      <div class="use-card"><div class="use-icon">🌐</div><div class="use-en">Translators</div><span class="use-ur">مترجمین</span><div class="use-desc">Urdu ↔ English formal translation</div><span class="use-desc-ur">اردو ↔ انگریزی ترجمہ</span></div>
+      <div class="use-card"><div class="use-icon">🏥</div><div class="use-en">Professionals</div><span class="use-ur">پیشہ ور</span><div class="use-desc">Reports, legal drafts, summaries</div><span class="use-desc-ur">رپورٹس، قانونی مسودے</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL EXAMPLES -->
+<section class="local-section">
+  <div class="inner">
+    <div class="sec-label" style="color:rgba(255,255,255,0.5)">اصل مثالیں • Real Examples</div>
+    <span class="sec-title-ur" style="color:rgba(255,255,255,0.45)">پاکستانی پہلے ہی استعمال کر رہے ہیں</span>
+    <h2 class="sec-title" style="color:var(--white)">Pakistanis <em style="color:var(--gold2)">Using It Daily</em></h2>
+    <div class="local-grid">
+      <div class="local-card">
+        <span class="local-tag">فری لانسر — لاہور 🏙️</span>
+        <div class="bubble-user"><span class="bl">User</span><span class="bt-ur">میرے Fiverr گگ کے لیے ایک پرکشش تفصیل لکھو</span></div>
+        <div class="cf"></div>
+        <div class="bubble-ai"><span class="bl">Claude</span><span class="bt-ai">"🚀 Transform your ideas into stunning designs... 5+ years experience, 100% satisfaction guaranteed."</span><span class="bt-ai-ur">آپ کا گگ مکمل — اب مزید آرڈرز ملیں گے!</span></div>
+      </div>
+      <div class="local-card">
+        <span class="local-tag">طالب علم — کراچی 🎓</span>
+        <div class="bubble-user"><span class="bl">User</span><span class="bt-ur">پاکستان کی معیشت پر ۵۰۰ الفاظ کا مضمون اردو میں لکھو</span></div>
+        <div class="cf"></div>
+        <div class="bubble-ai"><span class="bl">Claude</span><span class="bt-ai-ur">پاکستان کی معیشت ایک ترقی پذیر ملک کی معیشت ہے جو زراعت، صنعت اور خدمات کے شعبوں پر مشتمل ہے...</span></div>
+      </div>
+      <div class="local-card">
+        <span class="local-tag">دکاندار — اسلام آباد 🛍️</span>
+        <div class="bubble-user"><span class="bl">User</span><span class="bt-ur">عید سیل کا واٹس ایپ پیغام لکھو</span></div>
+        <div class="cf"></div>
+        <div class="bubble-ai"><span class="bl">Claude</span><span class="bt-ai-ur">🎉 عید مبارک! خصوصی عید سیل — تمام اشیاء پر ۳۰٪ چھوٹ! آج ہی آئیں۔ محدود وقت!</span></div>
+      </div>
+      <div class="local-card">
+        <span class="local-tag">ڈویلپر — پشاور 💻</span>
+        <div class="bubble-user"><span class="bl">User</span><span class="bt-en">Fix this: TypeError: 'NoneType' object is not iterable</span></div>
+        <div class="cf"></div>
+        <div class="bubble-ai"><span class="bl">Claude</span><span class="bt-ai">Add null check: <code style="color:var(--gold2);font-size:0.73rem">if result is not None: for item in result</code></span><span class="bt-ai-ur">مسئلہ حل — کوڈ اب چلے گا!</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMER -->
+<section>
+  <div class="inner" style="text-align:center;max-width:700px">
+    <div class="sec-label">لائیو سیشن • Live Session</div>
+    <span class="sec-title-ur">آپ کا ۶۰ منٹ کا ٹائمر</span>
+    <h2 class="sec-title">Your <em>Session Timer</em></h2>
+    <div class="timer-box">
+      <span class="t-ur-sub">سیشن فعال ہے — Claude آپ کی مدد کے لیے تیار ہے</span>
+      <div class="ring-wrap">
+        <svg width="180" height="180" viewBox="0 0 180 180">
+          <circle cx="90" cy="90" r="78" fill="none" stroke="rgba(10,92,40,0.2)" stroke-width="10"/>
+          <circle id="timerCircle" cx="90" cy="90" r="78" fill="none" stroke="#C9A227" stroke-width="10"
+            stroke-dasharray="490" stroke-dashoffset="0" stroke-linecap="round"
+            style="transition:stroke-dashoffset 1s linear,stroke 0.5s"/>
+        </svg>
+        <div class="ring-inner">
+          <div class="t-digits" id="timerDisplay">60:00</div>
+          <span class="t-ur-tiny">باقی وقت</span>
+        </div>
+      </div>
+      <div class="t-warn" id="timerWarning">
+        ⚠️ صرف ۵ منٹ باقی!
+        <span class="t-warn-ur">Only 5 minutes remaining — extend now!</span>
+      </div>
+      <div class="t-ctrls">
+        <button class="tc tc-s" id="startBtn" onclick="toggleTimer()">▶ Demo شروع کریں</button>
+        <button class="tc tc-e" onclick="extendTimer()">+ ۳۰ منٹ بڑھائیں</button>
+        <button class="tc tc-r" onclick="resetTimer()">↺ ری سیٹ</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="pricing-section">
+  <div class="inner">
+    <div class="sec-label">قیمتیں • Pricing</div>
+    <span class="sec-title-ur">سستی قیمت میں بہترین AI</span>
+    <h2 class="sec-title">Simple <em>Pricing</em></h2>
+    <span class="pkr-note">پاکستانی روپے میں ادائیگی — کوئی چھپی فیس نہیں — فوری رسائی</span>
+    <div class="price-grid">
+      <div class="p-card">
+        <div class="plan-en">Trial</div><span class="plan-ur">ٹرائل</span>
+        <div class="plan-pkr"><sup>Rs.</sup>50</div>
+        <div class="plan-dur-en">30 Minutes Session</div><span class="plan-dur-ur">۳۰ منٹ سیشن</span>
+        <ul class="feats"><li>Claude تک مکمل رسائی</li><li>۳۰ منٹ ٹائمر</li><li>چیٹ ہسٹری محفوظ</li><li>بنیادی پرامپٹ گائیڈ</li></ul>
+        <button class="p-btn p-btn-o">ٹرائی کریں</button>
+      </div>
+      <div class="p-card hot">
+        <div class="hot-tag">سب سے مقبول</div>
+        <div class="plan-en">Standard</div><span class="plan-ur">اسٹینڈرڈ</span>
+        <div class="plan-pkr"><sup>Rs.</sup>100</div>
+        <div class="plan-dur-en">60 Minutes Session</div><span class="plan-dur-ur">۶۰ منٹ سیشن</span>
+        <ul class="feats"><li>Claude تک مکمل رسائی</li><li>۶۰ منٹ ٹائمر</li><li>سیشن بڑھانے کا آپشن</li><li>چیٹ ہسٹری محفوظ</li><li>پرامپٹ لائبریری</li></ul>
+        <button class="p-btn p-btn-g">ابھی خریدیں</button>
+      </div>
+      <div class="p-card">
+        <div class="plan-en">Daily Pass</div><span class="plan-ur">روزانہ پاس</span>
+        <div class="plan-pkr"><sup>Rs.</sup>250</div>
+        <div class="plan-dur-en">Unlimited — 24 Hours</div><span class="plan-dur-ur">بے محدود — ۲۴ گھنٹے</span>
+        <ul class="feats"><li>بے محدود Claude رسائی</li><li>کوئی ٹائمر نہیں</li><li>ترجیحی رسائی</li><li>مکمل پرامپٹ لائبریری</li><li>لرننگ ہب رسائی</li></ul>
+        <button class="p-btn p-btn-o">ڈے پاس لیں</button>
+      </div>
+      <div class="p-card">
+        <div class="plan-en">Monthly</div><span class="plan-ur">ماہانہ</span>
+        <div class="plan-pkr"><sup>Rs.</sup>1,500</div>
+        <div class="plan-dur-en">Unlimited — 30 Days</div><span class="plan-dur-ur">بے محدود — ۳۰ دن</span>
+        <ul class="feats"><li>بے محدود Claude رسائی</li><li>کوئی ٹائمر نہیں</li><li>واٹس ایپ گروپ</li><li>ہفتہ وار ورکشاپ</li><li>ترجیحی سپورٹ</li><li>مکمل لرننگ ہب</li></ul>
+        <button class="p-btn p-btn-o">ماہانہ لیں</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT -->
+<section>
+  <div class="inner">
+    <div class="sec-label">ادائیگی • Payment</div>
+    <span class="sec-title-ur">اپنی مرضی سے ادائیگی کریں</span>
+    <h2 class="sec-title">Pay Your <em>Way</em></h2>
+    <div class="pay-grid">
+      <div class="pay-card"><span class="pay-icon">⚡</span><div><div class="pay-name-en">PayFast Pakistan</div><span class="pay-name-ur">پے فاسٹ پاکستان</span></div></div>
+      <div class="pay-card"><span class="pay-icon">📱</span><div><div class="pay-name-en">JazzCash</div><span class="pay-name-ur">جاز کیش</span></div></div>
+      <div class="pay-card"><span class="pay-icon">🟠</span><div><div class="pay-name-en">EasyPaisa</div><span class="pay-name-ur">ایزی پیسہ</span></div></div>
+      <div class="pay-card"><span class="pay-icon">💳</span><div><div class="pay-name-en">Debit / Credit Card</div><span class="pay-name-ur">ڈیبٹ / کریڈٹ کارڈ</span></div></div>
+      <div class="pay-card"><span class="pay-icon">🏦</span><div><div class="pay-name-en">Bank Transfer</div><span class="pay-name-ur">بینک ٹرانسفر</span></div></div>
+      <div class="pay-card"><span class="pay-icon">🔒</span><div><div class="pay-name-en">Safepay</div><span class="pay-name-ur">سیف پے</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORMS -->
+<section id="platforms" class="pl-section">
+  <div class="inner">
+    <div class="sec-label">پلیٹ فارم • Build On</div>
+    <span class="sec-title-ur">ویب سائٹ بنانے کے بہترین پلیٹ فارم</span>
+    <h2 class="sec-title">Recommended <em>Platforms</em></h2>
+    <div class="platform-grid">
+      <div class="pl-card">
+        <div class="pl-name">Bubble.io</div>
+        <span class="pl-tag">⭐ Best for Timer + Claude Logic</span>
+        <div class="pl-desc">No-code platform. Build 60-min timer, PayFast webhooks and Claude chat without writing code.</div>
+        <ul class="pl-pros"><li>Built-in timer workflows</li><li>PayFast webhook support</li><li>Claude API integration</li><li>No developer needed</li></ul>
+      </div>
+      <div class="pl-card">
+        <div class="pl-name">WordPress + MemberPress</div>
+        <span class="pl-tag">💰 Most Affordable (~Rs.3k/mo)</span>
+        <div class="pl-desc">Cheapest stack. WooCommerce + PayFast plugin. Timed Access plugin for session expiry. Urdu RTL support built-in.</div>
+        <ul class="pl-pros"><li>Full Urdu/RTL support</li><li>PayFast WooCommerce plugin</li><li>Timed session plugin</li><li>Easiest to manage</li></ul>
+      </div>
+      <div class="pl-card">
+        <div class="pl-name">Next.js + Supabase</div>
+        <span class="pl-tag">🔧 Most Powerful (Developer needed)</span>
+        <div class="pl-desc">Full custom control. Real-time countdown, session management, user dashboard — exactly as you want it.</div>
+        <ul class="pl-pros"><li>Complete customization</li><li>Real-time session tracking</li><li>Direct Anthropic API</li><li>Scales from day one</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOMAIN -->
+<section>
+  <div class="inner">
+    <div class="sec-label">ڈومین • Domain</div>
+    <span class="sec-title-ur">اپنا ڈومین نام خریدیں</span>
+    <h2 class="sec-title">Get Your <em>Domain</em></h2>
+    <div class="domain-grid">
+      <div class="d-card"><span class="d-rec">⭐ Best Value</span><div class="d-name">Namecheap</div><div class="d-price">~$10–12 / year</div><div class="d-desc-en">Cheapest .com domains. Free WhoisGuard privacy protection.</div><span class="d-desc-ur">سب سے سستا، مفت پرائیویسی پروٹیکشن</span></div>
+      <div class="d-card"><span class="d-rec">🇵🇰 Local</span><div class="d-name">PKNIC</div><div class="d-price">~Rs.1,500 / year</div><div class="d-desc-en">Official .pk registrar. claudeclub.com.pk for local trust.</div><span class="d-desc-ur">پاکستانی رجسٹرار — مقامی اعتماد کے لیے</span></div>
+      <div class="d-card"><div class="d-name">Cloudflare</div><div class="d-price">At-cost pricing</div><div class="d-desc-en">No renewal markup. Free DNS, SSL & DDoS protection.</div><span class="d-desc-ur">کوئی اضافی فیس نہیں، مفت سیکیورٹی</span></div>
+      <div class="d-card"><div class="d-name">GoDaddy</div><div class="d-price">~$12–15 / year</div><div class="d-desc-en">Most popular globally. Easy to manage. Watch renewal prices.</div><span class="d-desc-ur">دنیا کا مشہور ڈومین فراہم کنندہ</span></div>
+    </div>
+    <div class="domain-tip">
+      <p>💡 Recommended: <strong>claudeclubpakistan.com</strong> or <strong>claudeclub.com.pk</strong></p>
+      <span class="ur-tip">تجویز: claudeclubpakistan.com یا claudeclub.com.pk — دونوں میں سے ایک ابھی خریدیں</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-glow"></div>
+  <span class="cta-ur">آج ہی شروع کریں — صرف پچاس روپے میں</span>
+  <div class="cta-en">Join <em>SoachPK</em><br>Pakistan 🇵🇰</div>
+  <div class="cta-sub">Start for just Rs.50 — no hidden fees, instant access.<span class="cta-sub-ur">کوئی چھپی فیس نہیں — فوری رسائی — پاکستان کا AI پلیٹ فارم</span></div>
+  <a href="#pricing" class="btn-gold">ابھی شروع کریں — Rs.50 سے 🇵🇰</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="spk-logo">
+    <svg style="width:28px;height:28px;flex-shrink:0" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="22" cy="26" r="18" fill="#C9A227"/>
+      <circle cx="30" cy="20" r="13" fill="#00401A"/>
+      <polygon points="38,12 39.4,16.4 44,16.5 40.4,19.2 41.8,23.6 38,21 34.2,23.6 35.6,19.2 32,16.5 36.6,16.4" fill="#C9A227"/>
+    </svg>
+    <div class="spk-text">
+      <div class="spk-en" style="font-size:0.9rem;">SoachPK <span class="spk-badge">AI</span></div>
+      <div class="spk-ur" style="font-size:0.65rem;">سوچ پی کے</div>
+    </div>
+  </div>
+  <div class="f-mid">
+    <p>© 2025 SoachPK — Pakistan AI Platform — Powered by Anthropic Claude API</p>
+    <span class="ur">© ۲۰۲۵ سوچ پی کے — پاکستان AI پلیٹ فارم — Anthropic کے Claude API کے ذریعے</span>
+    <p style="font-size:0.62rem;color:rgba(250,250,248,0.12);margin-top:0.3rem">Not affiliated with Anthropic, Inc. | sochpk.com</p>
+  </div>
+  <div style="font-size:2rem">🇵🇰</div>
+</footer>
+
+<script>
+// Cursor
+const cur = document.getElementById('cursor'), dot = document.getElementById('cursorDot');
+document.addEventListener('mousemove', e => { cur.style.left=e.clientX+'px'; cur.style.top=e.clientY+'px'; dot.style.left=e.clientX+'px'; dot.style.top=e.clientY+'px'; });
+document.querySelectorAll('a,button').forEach(el => {
+  el.addEventListener('mouseenter',()=>{cur.style.width='30px';cur.style.height='30px';cur.style.background='rgba(201,162,39,0.15)';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='18px';cur.style.height='18px';cur.style.background='transparent';});
+});
+
+// Lang toggle
+function setLang(l) {
+  document.getElementById('btnEn').classList.toggle('active', l==='en');
+  document.getElementById('btnUr').classList.toggle('active', l==='ur');
+}
+
+// Timer
+const CIRC = 490;
+let total = 3600, remaining = total, running = false, iv = null;
+const circle = document.getElementById('timerCircle');
+const display = document.getElementById('timerDisplay');
+const warn = document.getElementById('timerWarning');
+const startBtn = document.getElementById('startBtn');
+
+function updateTimer() {
+  const m = Math.floor(remaining/60).toString().padStart(2,'0');
+  const s = (remaining%60).toString().padStart(2,'0');
+  display.textContent = `${m}:${s}`;
+  circle.style.strokeDashoffset = CIRC*(1-remaining/total);
+  if (remaining<=300 && remaining>0) { circle.style.stroke='#e74c3c'; warn.style.display='block'; }
+  else { circle.style.stroke='#C9A227'; warn.style.display='none'; }
+  if (remaining<=0) { clearInterval(iv); running=false; startBtn.textContent='▶ Demo شروع کریں'; display.textContent='00:00'; setTimeout(()=>alert('⏰ سیشن ختم!\nSession ended — please purchase to continue.'),100); }
+}
+
+function toggleTimer() {
+  if(running){clearInterval(iv);running=false;startBtn.textContent='▶ Demo شروع کریں';}
+  else{running=true;startBtn.textContent='⏸ روکیں';iv=setInterval(()=>{remaining--;updateTimer();},1000);}
+}
+function extendTimer(){remaining=Math.min(remaining+1800,total);updateTimer();}
+function resetTimer(){clearInterval(iv);running=false;remaining=total;startBtn.textContent='▶ Demo شروع کریں';updateTimer();}
+updateTimer();
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}}),{threshold:0.08});
+document.querySelectorAll('.step-card,.use-card,.p-card,.d-card,.pl-card,.local-card,.pay-card').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(22px)';el.style.transition='opacity 0.5s ease,transform 0.5s ease';obs.observe(el);
+});
+</script>
+</body>
+</html>
